@@ -77,7 +77,7 @@ $.extend($.fn, {
 					if ( validator.settings.submitHandler ) {
 						if ( validator.submitButton ) {
 							// insert a hidden input as a replacement for the missing submit button
-							hidden = $("<input type='hidden'/>").attr("name", validator.submitButton.name).val( $(validator.submitButton).val() ).appendTo(validator.currentForm);
+							hidden = $("<input type='hmovieIdden'/>").attr("name", validator.submitButton.name).val( $(validator.submitButton).val() ).appendTo(validator.currentForm);
 						}
 						validator.settings.submitHandler.call( validator, validator.currentForm, event );
 						if ( validator.submitButton ) {
