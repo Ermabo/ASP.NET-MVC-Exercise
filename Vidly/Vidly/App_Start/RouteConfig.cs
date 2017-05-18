@@ -14,7 +14,7 @@ namespace Vidly
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 
-            routes.MapMvcAttributeRoutes();
+            //routes.MapMvcAttributeRoutes();       Attribute routing is not needed, using the default route model instead
 
 
             //routes.MapRoute("MoviesByReleaeDate",

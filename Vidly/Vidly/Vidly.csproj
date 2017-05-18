@@ -223,9 +223,46 @@
     <Compile Include="Migrations\201705151843018_ApplyAnnotionsToCustomerName.Designer.cs">
       <DependentUpon>201705151843018_ApplyAnnotionsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705181151118_AddedNameToMembershipType.cs" />
+    <Compile Include="Migrations\201705181151118_AddedNameToMembershipType.Designer.cs">
+      <DependentUpon>201705181151118_AddedNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181303599_SeededNameInMembershipTypes.cs" />
+    <Compile Include="Migrations\201705181303599_SeededNameInMembershipTypes.Designer.cs">
+      <DependentUpon>201705181303599_SeededNameInMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181338437_CorrectedToQuarterlyAndAnnual.cs" />
+    <Compile Include="Migrations\201705181338437_CorrectedToQuarterlyAndAnnual.Designer.cs">
+      <DependentUpon>201705181338437_CorrectedToQuarterlyAndAnnual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181349221_AddedBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\201705181349221_AddedBirthdateToCustomer.Designer.cs">
+      <DependentUpon>201705181349221_AddedBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181350498_SeededBirthdayInCustomer.cs" />
+    <Compile Include="Migrations\201705181350498_SeededBirthdayInCustomer.Designer.cs">
+      <DependentUpon>201705181350498_SeededBirthdayInCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181459415_AddedReleaseDate&amp;DateTime&amp;NumberInStockToMovie.cs" />
+    <Compile Include="Migrations\201705181459415_AddedReleaseDate&amp;DateTime&amp;NumberInStockToMovie.Designer.cs">
+      <DependentUpon>201705181459415_AddedReleaseDate&amp;DateTime&amp;NumberInStockToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181524142_AddedGenreTable.cs" />
+    <Compile Include="Migrations\201705181524142_AddedGenreTable.Designer.cs">
+      <DependentUpon>201705181524142_AddedGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181528178_AddedGenreFKToMoviesTable.cs" />
+    <Compile Include="Migrations\201705181528178_AddedGenreFKToMoviesTable.Designer.cs">
+      <DependentUpon>201705181528178_AddedGenreFKToMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181532115_PopulateGenre.cs" />
+    <Compile Include="Migrations\201705181532115_PopulateGenre.Designer.cs">
+      <DependentUpon>201705181532115_PopulateGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -325,6 +362,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705151843018_ApplyAnnotionsToCustomerName.resx">
       <DependentUpon>201705151843018_ApplyAnnotionsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181151118_AddedNameToMembershipType.resx">
+      <DependentUpon>201705181151118_AddedNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181303599_SeededNameInMembershipTypes.resx">
+      <DependentUpon>201705181303599_SeededNameInMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181338437_CorrectedToQuarterlyAndAnnual.resx">
+      <DependentUpon>201705181338437_CorrectedToQuarterlyAndAnnual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181349221_AddedBirthdateToCustomer.resx">
+      <DependentUpon>201705181349221_AddedBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181350498_SeededBirthdayInCustomer.resx">
+      <DependentUpon>201705181350498_SeededBirthdayInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181459415_AddedReleaseDate&amp;DateTime&amp;NumberInStockToMovie.resx">
+      <DependentUpon>201705181459415_AddedReleaseDate&amp;DateTime&amp;NumberInStockToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181524142_AddedGenreTable.resx">
+      <DependentUpon>201705181524142_AddedGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181528178_AddedGenreFKToMoviesTable.resx">
+      <DependentUpon>201705181528178_AddedGenreFKToMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181532115_PopulateGenre.resx">
+      <DependentUpon>201705181532115_PopulateGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
