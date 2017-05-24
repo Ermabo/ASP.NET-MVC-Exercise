@@ -18,6 +18,84 @@ namespace Vidly.Controllers
             _context = new ApplicationDbContext();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewModel);  
+
+            }
+
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+                
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+            }
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting  
+                        // the current instance as InnerException  
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+
+            //    catch(System.Data.up)
+            //{
+
+            //}
+                throw raise;
+            }
+
+            
+
+            return RedirectToAction("Index", "Movies");
+        }
+
         // GET: Movies/random
         public ActionResult Random()
         {
@@ -37,11 +115,6 @@ namespace Vidly.Controllers
             };
 
             return View(viewModel);
-        }
-
-        public ActionResult Edit(int id)
-        {
-            return Content($"id= {id}");
         }
 
         //movies
@@ -66,13 +139,22 @@ namespace Vidly.Controllers
             return Content(year + "/" + month);
         }
 
-        private IEnumerable<Movie> GetMovies()
+
+        public ActionResult Edit(int id)
         {
-            return new List<Movie>
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
             {
-                new Movie() {Id = 1, Name = "Shrek" },
-                new Movie() {Id = 2, Name = "Wall-e" }
+                return HttpNotFound();
+            }
+
+            var viewModel = new MovieFormViewModel(movie)
+            {              
+                Genres = _context.Genres.ToList()
             };
+
+            return View("MovieForm", viewModel);
         }
     }
 }
